@@ -6,245 +6,257 @@
   <title>Linghadharinee A S | Portfolio</title>
   <style>
     :root {
-      --main-bg: #f5f5f0;
-      --header-bg: #3d3d29;
-      --header-accent: #4a4a2c;
-      --text-color: #333;
-      --accent-brown: #6b4e2e;
-      --border: #ccc;
-      --dropdown-bg: #fafae6;
-      --dropdown-hover: #e2e2cc;
+      --olive: #556b2f;
+      --brown: #795548;
+      --white: #fff;
+      --black: #111;
+      --transition: 0.18s cubic-bezier(.45,.14,.56,1.23);
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    html, body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      font-weight: 300;
       margin: 0;
       padding: 0;
-      background-color: var(--main-bg);
-      color: var(--text-color);
+      letter-spacing: 0.04em;
     }
-    /* Navbar */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      border-radius: 0 !important; /* SHARP corners everywhere */
+    }
     nav {
-      background-color: var(--header-bg);
+      background: var(--white);
+      border-bottom: 2px solid var(--olive);
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .nav-branding {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .profile-pic {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      object-fit: cover;
-      background: #ddd;
+      padding: 0.9rem 0 0.6rem 0;
+      margin-bottom: 0.7rem;
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.8rem;
     }
     .nav-links a {
-      color: #fff;
+      color: var(--black);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1.05rem;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
+      font-family: inherit;
+      font-size: 1.03rem;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      padding: 0.2em 0.7em;
+      border-bottom: 2px solid transparent;
+      transition: color var(--transition), border-color var(--transition), transform var(--transition);
     }
     .nav-links a:hover {
-      color: var(--accent-brown);
+      color: var(--olive);
+      border-bottom: 2px solid var(--olive);
+      transform: scale(1.15);
+      font-weight: 400;
+      background: rgba(85,107,47,0.05);
     }
-
     header {
-      background-color: var(--header-bg);
-      color: #fff;
-      padding: 2rem 0 1.5rem 0;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--white);
+      color: var(--black);
+      padding: 2.6rem 0 1.1rem 0;
+      border-bottom: 1.5px solid var(--brown);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--olive);
+      background: var(--white);
+      margin-bottom: 1.6rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 8px 22px rgba(85,107,47,.10);
+    }
+    .profile-photo:hover {
+      transform: scale(1.09);
+      box-shadow: 0 12px 42px rgba(85,107,47,0.23);
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 2.7rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.15em;
+      margin-top: 0;
     }
     header p {
-      margin: 0.5rem 0 0;
       font-style: italic;
-      font-size: 1.18rem;
-      color: #f0eada;
-      letter-spacing: 0.5px;
+      font-weight: 200;
+      font-size: 1.2rem;
+      color: var(--olive);
+      margin-top: 0;
     }
-    /* Main layout */
     .container {
-      max-width: 1020px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
+      max-width: 1040px;
+      margin: 2.5rem auto 0 auto;
+      padding: 0 1.2rem;
     }
-    section {
-      margin-bottom: 2.5rem;
-      padding: 1.5rem 1rem;
-      background: #fff;
-      border-radius: 1.1rem;
-      box-shadow: 0 1px 8px #c1c1aa33;
+    section, .dropdown {
+      background: var(--white);
+      border: 2px solid var(--olive);
+      margin-bottom: 2.2rem;
+      padding: 1.4rem 1.15rem;
+      box-shadow: none;
+      border-radius: 0 !important;
     }
     h2 {
-      color: var(--header-accent);
-      font-size: 2rem;
-      margin-top: 0;
-      margin-bottom: 0.8rem;
+      font-family: inherit;
+      font-size: 1.45rem;
+      margin: 0 0 1.2rem 0;
+      letter-spacing: 0.05em;
+      font-weight: 400;
+      color: var(--brown);
+      border-left: 4px solid var(--olive);
+      padding-left: 0.7rem;
+      background: none;
     }
-    ul {
-      padding-left: 1.2rem;
-      margin: 0.5rem 0 0.5rem 0;
-    }
-    /* Dropdowns */
+    ul { padding-left: 1.3em; margin: 0.5em 0 0; }
     .dropdown {
-      background: var(--dropdown-bg);
-      border: 1px solid var(--border);
-      border-radius: 0.7rem;
-      margin-bottom: 1.2rem;
+      border: 2px solid var(--brown);
+      margin-bottom: 1.25rem;
+      background: var(--white);
+      padding: 0;
     }
     .dropdown-btn {
+      width: 100%;
+      background: transparent;
+      color: var(--olive);
+      font-size: 1.19rem;
+      font-weight: 300;
+      border: none;
+      outline: none;
+      text-align: left;
+      padding: 1.05rem 1.15rem;
+      border-bottom: 2px solid var(--brown);
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.16rem;
-      background: none;
-      color: var(--header-accent);
-      border: none;
-      width: 100%;
-      text-align: left;
-      font-weight: 600;
-      padding: 1rem 1.2rem;
-      cursor: pointer;
-      border-radius: 0.7rem;
-      outline: none;
-      transition: background 0.16s;
+      font-family: inherit;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
     }
-    .dropdown-btn:hover, .dropdown-btn.active {
-      background: var(--dropdown-hover);
+    .dropdown-btn:active, .dropdown-btn:hover {
+      background: #f9f9f3;
+      color: var(--brown);
+      transform: scale(1.025);
     }
     .dropdown-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.44s cubic-bezier(0.4, 0.01, 0.5, 0.97);
+      transition: max-height 0.42s, padding 0.21s;
       padding: 0 1.2rem;
+      background: none;
     }
     .dropdown-content.open {
-      padding: 0.5rem 1.2rem 1.2rem 1.2rem;
-      max-height: 900px;
-      transition: max-height 0.5s cubic-bezier(0.4, 0.01, 0.5, 0.97);
+      max-height: 980px;
+      padding: 0.8rem 1.2rem 1.3rem;
     }
-    /* Contact */
+    .arrow {
+      border: solid var(--olive);
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 5px;
+      margin-left: 7px;
+      transition: transform var(--transition);
+    }
+    .down { transform: rotate(135deg); }
+    .rotate { transform: rotate(45deg); }
     .contact-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 2.1rem;
       align-items: center;
+      font-size: 1.12rem;
     }
     .contact-item {
-      font-size: 1.13rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
+      color: var(--brown);
+      font-weight: 300;
     }
-    .contact-item a {
-      color: var(--accent-brown);
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-    /* Skills */
+    .contact-item a { color: var(--olive); text-decoration: underline; }
+    .contact-item a:hover { color: var(--brown); font-weight: 400; }
     .two-column {
       display: flex;
       flex-wrap: wrap;
-      gap: 2.2rem;
+      gap: 2.1rem;
     }
     .two-column > div {
       flex: 1;
-      min-width: 240px;
+      min-width: 220px;
     }
     .skill, .language {
       margin: 0.5rem 0;
       font-size: 1.07rem;
+      font-weight: 300;
+      color: var(--black);
     }
-    /* Languages */
-    .language {
-      letter-spacing: 0.1px;
+    .language { letter-spacing: 0.035em; }
+    /* Academic Table */
+    .marks-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.1em;
+      font-size: 0.98rem;
+      font-family: inherit;
     }
-    /* Responsive */
+    .marks-table th, .marks-table td {
+      border: 1.5px solid var(--brown);
+      padding: 0.48em 0.65em;
+      text-align: left;
+      font-weight: 300;
+      background: var(--white);
+    }
+    .marks-table th {
+      background: var(--olive);
+      color: var(--white);
+      font-weight: 400;
+    }
+    .marks-table tr:hover td {
+      background: #efefea;
+      color: var(--olive);
+      transform: scale(1.015);
+      transition: background 0.18s, color 0.18s;
+    }
+    /* Footer */
+    footer {
+      background: var(--olive);
+      color: var(--white);
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1.03rem;
+      letter-spacing: 0.04em;
+      margin-top: 2.2rem;
+      border: none;
+    }
     @media (max-width: 800px) {
       nav, .nav-links {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        gap: 0.6rem;
+        padding: 0.7rem 0;
       }
-      .contact-list {
-        flex-direction: column;
-        gap: 1rem;
-      }
+      .contact-list { flex-direction: column; gap: 1.1rem;}
     }
     @media (max-width: 600px) {
-      .container {
-        padding: 0 0.5rem;
-      }
-      section {
-        padding: 1rem 0.4rem;
-      }
-      .profile-pic {
-        width: 48px;
-        height: 48px;
-      }
-    }
-    footer {
-      background-color: var(--header-bg);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 1.07rem;
-      letter-spacing: 0.4px;
-    }
-    /* Drop-down arrow styling */
-    .arrow {
-      border: solid var(--header-accent);
-      border-width: 0 4px 4px 0;
-      display: inline-block;
-      padding: 5px;
-      transition: transform 0.2s;
-      margin-left: 8px;
-    }
-    .rotate {
-      transform: rotate(45deg);
-    }
-    .down {
-      transform: rotate(135deg);
-    }
-    /* Subtle Section SVG/illustration placeholder */
-    .svg-ico {
-      width: 2em;
-      height: 2em;
-      vertical-align: middle;
-      margin-right: 0.35em;
-      opacity: 0.72;
+      .container { padding: 0 0.3rem; }
+      section, .dropdown { padding: 1rem 0.5rem;}
+      .profile-photo { width: 115px; height: 115px;}
     }
   </style>
+  <link href="https://fonts.googleapis.com/css?family=Inter:300,400&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
+  <!-- Navbar -->
   <nav>
-    <div class="nav-branding">
-      <img src="profile.jpg" alt="Profile photo" class="profile-pic" />
-      <span style="font-size:1.18rem;font-weight:bold;">Linghadharinee A S</span>
-    </div>
     <div class="nav-links">
       <a href="#summary">Summary</a>
       <a href="#contact">Contact</a>
@@ -259,131 +271,108 @@
   </nav>
   <!-- Header -->
   <header>
+    <img src="profile.jpg" alt="Profile Photo" class="profile-photo"/>
     <h1>Linghadharinee A S</h1>
-    <p>B.E. Biomedical Engineering | Neurotechnology Enthusiast</p>
+    <p>B.E. Biomedical Engineering — Neurotechnology Enthusiast</p>
   </header>
   <div class="container">
-    <!-- Profile Summary -->
     <section id="summary">
-      <h2>
-        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 8v4l3 3"/></svg>
-        Profile Summary
-      </h2>
+      <h2>Profile Summary</h2>
       <p>
         Passionate Biomedical Engineering student with a strong academic foundation and a keen interest in neurotechnology and assistive innovation. Experienced in research-based projects, leadership roles, and student communities. Known for a proactive approach to learning, problem-solving, and applying technical knowledge to real-world challenges.
       </p>
+      <p>
+        <strong>Academic Year:</strong> 2024-25<br/>
+        <strong>Student:</strong> Lakshana S<br/>
+        <strong>Roll No:</strong> 23BM022
+      </p>
     </section>
-
-    <!-- Contact -->
     <section id="contact">
-      <h2>
-        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M21 8V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1"/><path stroke-width="2" d="M3 8v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"/><path stroke-width="2" d="m21 8-9 6-9-6"/></svg>
-        Contact
-      </h2>
+      <h2>Contact</h2>
       <div class="contact-list">
         <div class="contact-item">📞 9976824602</div>
         <div class="contact-item">✉️ linghadharinee08@gmail.com</div>
         <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/linghadhari-nee-surekshnaur-7944aa2a5" target="_blank">LinkedIn</a></div>
       </div>
     </section>
-
-    <!-- Dropdowns for interactive details -->
-    <!-- Education -->
+    <!-- Dropdowns -->
     <div class="dropdown" id="education">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
-          Education
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Education <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <ul>
-          <li><strong>KPR Institute of Engineering and Technology</strong>, Coimbatore – B.E. BME (2023–2027)</li>
-          <li><strong>SSV CBSE School</strong>, Coimbatore – 89.4% (2021–2023), Academic Topper</li>
+          <li><strong>KPR Institute of Engineering and Technology</strong>, Coimbatore — B.E. BME (2023–2027)</li>
+          <li><strong>SSV CBSE School</strong>, Coimbatore — 89.4% (2021–2023), Academic Topper</li>
         </ul>
+        <table class="marks-table">
+          <tr>
+            <th>No</th>
+            <th>Subject Name</th>
+            <th>Grade</th>
+          </tr>
+          <tr><td>1</td><td>Artificial Intelligence and Machine Learning</td><td>A</td></tr>
+          <tr><td>2</td><td>Microbiology and Pathology</td><td>A</td></tr>
+          <tr><td>3</td><td>Biophysical Signals and Systems</td><td>A</td></tr>
+          <tr><td>4</td><td>Microbiology and Pathology Laboratory</td><td>O</td></tr>
+          <tr><td>5</td><td>Design Studio II</td><td>O</td></tr>
+          <tr><td>6</td><td>Java Programming</td><td>A</td></tr>
+          <tr><td>7</td><td>Probability and Stochastic Processes</td><td>A</td></tr>
+          <tr><td>8</td><td>Design for Biosecurity</td><td>A</td></tr>
+          <tr><td>9</td><td>Industrial Robotics</td><td>A</td></tr>
+          <tr><td>10</td><td>Indian Constitution</td><td>A+</td></tr>
+          <tr><td>11</td><td>Deep Learning in Biomedical Imaging</td><td>A</td></tr>
+          <tr><td>12</td><td>Guitar for Beginners</td><td>A+</td></tr>
+          <tr><td>13</td><td>Soft Skills I</td><td>A</td></tr>
+        </table>
       </div>
     </div>
-    <!-- Achievements -->
     <div class="dropdown" id="achievements">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M10.5 16.5V8.5h3v8M12 17.5v1.5"/></svg>
-          Achievements
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Achievements <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <ul>
           <li>Academic Topper for 3 consecutive semesters</li>
           <li>Ranked 292nd in Code-O-Phile quiz (IIT Nagpur)</li>
-          <li>2nd Place – Paper Presentation at Sri Ramakrishna Engineering College</li>
-          <li>2nd Place – Paper Presentation at Karpagam Institute of Technology</li>
-          <li>1st Place – Design Thinking Contest, KPRIET</li>
+          <li>2nd Place — Paper Presentation at Sri Ramakrishna Engineering College</li>
+          <li>2nd Place — Paper Presentation at Karpagam Institute of Technology</li>
+          <li>1st Place — Design Thinking Contest, KPRIET</li>
         </ul>
       </div>
     </div>
-    <!-- Leadership & Memberships -->
     <div class="dropdown" id="leadership">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M14 10V6h4V2H6v4h4v4"/><path stroke-width="2" d="M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
-          Leadership & Memberships
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Leadership & Memberships <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <ul>
-          <li>Additional Secretary, BMESI Student Chapter – KPRIET</li>
+          <li>Additional Secretary, BMESI Student Chapter — KPRIET</li>
           <li>Operations Lead, IEEE EMBS KPRIET</li>
           <li>Key coordinator for symposiums and events</li>
         </ul>
       </div>
     </div>
-    <!-- Skills -->
     <div class="dropdown" id="skills">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M15.232 5.232a3 3 0 0 1 4.242 4.242l-9.19 9.19a3 3 0 0 1-4.242 0 3 3 0 0 1 0-4.242z"/><path stroke-width="2" d="M6.343 17.657 9.88 14.12"/></svg>
-          Skills
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Skills <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <div class="two-column">
           <div>
-            <p class="skill">• Basic Programming (C, Java, Python)</p>
-            <p class="skill">• Technical Documentation</p>
-            <p class="skill">• Arduino and Basic Circuit Design</p>
+            <p class="skill">&#x2022; Basic Programming (C, Java, Python)</p>
+            <p class="skill">&#x2022; Technical Documentation</p>
+            <p class="skill">&#x2022; Arduino and Basic Circuit Design</p>
           </div>
           <div>
-            <p class="skill">• Time Management</p>
-            <p class="skill">• Leadership</p>
-            <p class="skill">• Event Coordination</p>
+            <p class="skill">&#x2022; Time Management</p>
+            <p class="skill">&#x2022; Leadership</p>
+            <p class="skill">&#x2022; Event Coordination</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- Languages -->
     <section id="languages">
-      <h2>
-        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M7 18v-2a4 4 0 0 1 4-4h2"/><circle cx="12" cy="7" r="4" stroke-width="2"/></svg>
-        Languages
-      </h2>
-      <p class="language">• English: Fluent</p>
-      <p class="language">• Tamil: Fluent</p>
-      <p class="language">• Telugu: Fluent</p>
-      <p class="language">• Hindi: Intermediate</p>
+      <h2>Languages</h2>
+      <p class="language">&#x2022; English: Fluent</p>
+      <p class="language">&#x2022; Tamil: Fluent</p>
+      <p class="language">&#x2022; Telugu: Fluent</p>
+      <p class="language">&#x2022; Hindi: Intermediate</p>
     </section>
-    <!-- Certifications -->
     <div class="dropdown" id="certifications">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M13 16h-1v-4H8l4-8v6h3l-4 8z"/></svg>
-          Certifications & Courses
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Certifications & Courses <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <ul>
           <li>NPTEL – Neuroscience of Human Movement (IIT, NPTEL Elite Pass)</li>
@@ -394,19 +383,12 @@
         </ul>
       </div>
     </div>
-    <!-- Internships -->
     <div class="dropdown" id="internships">
-      <button class="dropdown-btn">
-        <span>
-          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="20" height="14" x="2" y="7" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 21v-2M8 21v-2"/></svg>
-          Internships
-        </span>
-        <span class="arrow down"></span>
-      </button>
+      <button class="dropdown-btn">Internships <span class="arrow down"></span></button>
       <div class="dropdown-content">
         <ul>
-          <li>Biomedical Intern – GEM Hospital, Coimbatore</li>
-          <li>Biomedical Intern – Leeway Biomedical, Bengaluru</li>
+          <li>Biomedical Intern — GEM Hospital, Coimbatore</li>
+          <li>Biomedical Intern — Leeway Biomedical, Bengaluru</li>
         </ul>
       </div>
     </div>
@@ -416,18 +398,17 @@
   </footer>
   <script>
     // Dropdown interactivity
-    document.querySelectorAll('.dropdown-btn').forEach((btn) => {
+    document.querySelectorAll('.dropdown-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const content = this.parentElement.querySelector('.dropdown-content');
         const arrow = this.querySelector('.arrow');
-        if (content.classList.contains('open')) {
+        if(content.classList.contains('open')) {
           content.classList.remove('open');
           arrow.classList.remove('rotate');
           arrow.classList.add('down');
         } else {
           document.querySelectorAll('.dropdown-content').forEach(dd => dd.classList.remove('open'));
-          document.querySelectorAll('.dropdown-btn .arrow').forEach(ar => ar.classList.remove('rotate'));
-          document.querySelectorAll('.dropdown-btn .arrow').forEach(ar => ar.classList.add('down'));
+          document.querySelectorAll('.dropdown-btn .arrow').forEach(ar => {ar.classList.remove('rotate');ar.classList.add('down');});
           content.classList.add('open');
           arrow.classList.add('rotate');
           arrow.classList.remove('down');
