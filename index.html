@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linghadharinee A S | Portfolio</title>
+  <style>
+    :root {
+      --main-bg: #f5f5f0;
+      --header-bg: #3d3d29;
+      --header-accent: #4a4a2c;
+      --text-color: #333;
+      --accent-brown: #6b4e2e;
+      --border: #ccc;
+      --dropdown-bg: #fafae6;
+      --dropdown-hover: #e2e2cc;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+    }
+    /* Navbar */
+    nav {
+      background-color: var(--header-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-branding {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .profile-pic {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      background: #ddd;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-brown);
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: #fff;
+      padding: 2rem 0 1.5rem 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-style: italic;
+      font-size: 1.18rem;
+      color: #f0eada;
+      letter-spacing: 0.5px;
+    }
+    /* Main layout */
+    .container {
+      max-width: 1020px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border-radius: 1.1rem;
+      box-shadow: 0 1px 8px #c1c1aa33;
+    }
+    h2 {
+      color: var(--header-accent);
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    /* Dropdowns */
+    .dropdown {
+      background: var(--dropdown-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .dropdown-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.16rem;
+      background: none;
+      color: var(--header-accent);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      border-radius: 0.7rem;
+      outline: none;
+      transition: background 0.16s;
+    }
+    .dropdown-btn:hover, .dropdown-btn.active {
+      background: var(--dropdown-hover);
+    }
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.44s cubic-bezier(0.4, 0.01, 0.5, 0.97);
+      padding: 0 1.2rem;
+    }
+    .dropdown-content.open {
+      padding: 0.5rem 1.2rem 1.2rem 1.2rem;
+      max-height: 900px;
+      transition: max-height 0.5s cubic-bezier(0.4, 0.01, 0.5, 0.97);
+    }
+    /* Contact */
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .contact-item {
+      font-size: 1.13rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .contact-item a {
+      color: var(--accent-brown);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    /* Skills */
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+    }
+    .two-column > div {
+      flex: 1;
+      min-width: 240px;
+    }
+    .skill, .language {
+      margin: 0.5rem 0;
+      font-size: 1.07rem;
+    }
+    /* Languages */
+    .language {
+      letter-spacing: 0.1px;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      nav, .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .contact-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 0.5rem;
+      }
+      section {
+        padding: 1rem 0.4rem;
+      }
+      .profile-pic {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    footer {
+      background-color: var(--header-bg);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 1.07rem;
+      letter-spacing: 0.4px;
+    }
+    /* Drop-down arrow styling */
+    .arrow {
+      border: solid var(--header-accent);
+      border-width: 0 4px 4px 0;
+      display: inline-block;
+      padding: 5px;
+      transition: transform 0.2s;
+      margin-left: 8px;
+    }
+    .rotate {
+      transform: rotate(45deg);
+    }
+    .down {
+      transform: rotate(135deg);
+    }
+    /* Subtle Section SVG/illustration placeholder */
+    .svg-ico {
+      width: 2em;
+      height: 2em;
+      vertical-align: middle;
+      margin-right: 0.35em;
+      opacity: 0.72;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-branding">
+      <img src="profile.jpg" alt="Profile photo" class="profile-pic" />
+      <span style="font-size:1.18rem;font-weight:bold;">Linghadharinee A S</span>
+    </div>
+    <div class="nav-links">
+      <a href="#summary">Summary</a>
+      <a href="#contact">Contact</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#skills">Skills</a>
+      <a href="#languages">Languages</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#internships">Internships</a>
+    </div>
+  </nav>
+  <!-- Header -->
+  <header>
+    <h1>Linghadharinee A S</h1>
+    <p>B.E. Biomedical Engineering | Neurotechnology Enthusiast</p>
+  </header>
+  <div class="container">
+    <!-- Profile Summary -->
+    <section id="summary">
+      <h2>
+        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 8v4l3 3"/></svg>
+        Profile Summary
+      </h2>
+      <p>
+        Passionate Biomedical Engineering student with a strong academic foundation and a keen interest in neurotechnology and assistive innovation. Experienced in research-based projects, leadership roles, and student communities. Known for a proactive approach to learning, problem-solving, and applying technical knowledge to real-world challenges.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>
+        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M21 8V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1"/><path stroke-width="2" d="M3 8v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"/><path stroke-width="2" d="m21 8-9 6-9-6"/></svg>
+        Contact
+      </h2>
+      <div class="contact-list">
+        <div class="contact-item">📞 9976824602</div>
+        <div class="contact-item">✉️ linghadharinee08@gmail.com</div>
+        <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/linghadhari-nee-surekshnaur-7944aa2a5" target="_blank">LinkedIn</a></div>
+      </div>
+    </section>
+
+    <!-- Dropdowns for interactive details -->
+    <!-- Education -->
+    <div class="dropdown" id="education">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+          Education
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li><strong>KPR Institute of Engineering and Technology</strong>, Coimbatore – B.E. BME (2023–2027)</li>
+          <li><strong>SSV CBSE School</strong>, Coimbatore – 89.4% (2021–2023), Academic Topper</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Achievements -->
+    <div class="dropdown" id="achievements">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M10.5 16.5V8.5h3v8M12 17.5v1.5"/></svg>
+          Achievements
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li>Academic Topper for 3 consecutive semesters</li>
+          <li>Ranked 292nd in Code-O-Phile quiz (IIT Nagpur)</li>
+          <li>2nd Place – Paper Presentation at Sri Ramakrishna Engineering College</li>
+          <li>2nd Place – Paper Presentation at Karpagam Institute of Technology</li>
+          <li>1st Place – Design Thinking Contest, KPRIET</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Leadership & Memberships -->
+    <div class="dropdown" id="leadership">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M14 10V6h4V2H6v4h4v4"/><path stroke-width="2" d="M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+          Leadership & Memberships
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li>Additional Secretary, BMESI Student Chapter – KPRIET</li>
+          <li>Operations Lead, IEEE EMBS KPRIET</li>
+          <li>Key coordinator for symposiums and events</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Skills -->
+    <div class="dropdown" id="skills">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M15.232 5.232a3 3 0 0 1 4.242 4.242l-9.19 9.19a3 3 0 0 1-4.242 0 3 3 0 0 1 0-4.242z"/><path stroke-width="2" d="M6.343 17.657 9.88 14.12"/></svg>
+          Skills
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <div class="two-column">
+          <div>
+            <p class="skill">• Basic Programming (C, Java, Python)</p>
+            <p class="skill">• Technical Documentation</p>
+            <p class="skill">• Arduino and Basic Circuit Design</p>
+          </div>
+          <div>
+            <p class="skill">• Time Management</p>
+            <p class="skill">• Leadership</p>
+            <p class="skill">• Event Coordination</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Languages -->
+    <section id="languages">
+      <h2>
+        <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M7 18v-2a4 4 0 0 1 4-4h2"/><circle cx="12" cy="7" r="4" stroke-width="2"/></svg>
+        Languages
+      </h2>
+      <p class="language">• English: Fluent</p>
+      <p class="language">• Tamil: Fluent</p>
+      <p class="language">• Telugu: Fluent</p>
+      <p class="language">• Hindi: Intermediate</p>
+    </section>
+    <!-- Certifications -->
+    <div class="dropdown" id="certifications">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M13 16h-1v-4H8l4-8v6h3l-4 8z"/></svg>
+          Certifications & Courses
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li>NPTEL – Neuroscience of Human Movement (IIT, NPTEL Elite Pass)</li>
+          <li>NPTEL – Microprocessors, Implantable Devices & Rodent Surgeries</li>
+          <li>MATLAB Onramp – MathWorks</li>
+          <li>Writing Functions in MATLAB – MathWorks</li>
+          <li>Machine Learning Fundamentals – MathWorks</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Internships -->
+    <div class="dropdown" id="internships">
+      <button class="dropdown-btn">
+        <span>
+          <svg class="svg-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="20" height="14" x="2" y="7" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 21v-2M8 21v-2"/></svg>
+          Internships
+        </span>
+        <span class="arrow down"></span>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li>Biomedical Intern – GEM Hospital, Coimbatore</li>
+          <li>Biomedical Intern – Leeway Biomedical, Bengaluru</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Linghadharinee A S | Portfolio Website
+  </footer>
+  <script>
+    // Dropdown interactivity
+    document.querySelectorAll('.dropdown-btn').forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const content = this.parentElement.querySelector('.dropdown-content');
+        const arrow = this.querySelector('.arrow');
+        if (content.classList.contains('open')) {
+          content.classList.remove('open');
+          arrow.classList.remove('rotate');
+          arrow.classList.add('down');
+        } else {
+          document.querySelectorAll('.dropdown-content').forEach(dd => dd.classList.remove('open'));
+          document.querySelectorAll('.dropdown-btn .arrow').forEach(ar => ar.classList.remove('rotate'));
+          document.querySelectorAll('.dropdown-btn .arrow').forEach(ar => ar.classList.add('down'));
+          content.classList.add('open');
+          arrow.classList.add('rotate');
+          arrow.classList.remove('down');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
