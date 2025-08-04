@@ -1,165 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linghadharinee A S | Portfolio</title>
+  <title>Linghadharinee A S – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
       margin: 0;
-      padding: 0;
-      background-color: #f5f5f0;
-      color: #333;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: url('modern_dark_interior.png') center center/cover no-repeat;
+      /* fallback color */
+      background-color: #22292f;
     }
-    header {
-      background-color: #3d3d29; /* dull olive green */
+    .overlay-center {
+      min-height: 95vh;
+      min-width: 340px;
+      max-width: 760px;
+      margin: 40px auto 32px auto;
+      padding: 34px 36px;
+      background: rgba(30,35,40,0.48);
+      border-radius: 28px;
+      box-shadow: 0 8px 30px #0008, 0 1.5px 8px #2222;
+      backdrop-filter: blur(22px) saturate(190%);
+      color: #ffe;
+      position: relative;
+      z-index: 1;
+    }
+    h1,h2,h3 { color: #fff; margin-top: 0; letter-spacing:0.03em;}
+    p, li, a, strong, span { color: #f6f6ff;}
+    a { color: #e8eeff; text-decoration: underline;}
+    .profile-pic {
+      width:110px; height:110px; object-fit:cover;
+      border-radius: 50%; border:2.8px solid #fff8; box-shadow:0 1.8px 22px #0004;margin-bottom:13px;
+    }
+    .tag {
+      background: rgba(240,240,255, 0.18);
       color: #fff;
-      padding: 2rem;
-      text-align: center;
+      display:inline-block;
+      border-radius:13px;
+      padding:5px 15px;
+      font-size:1em;
+      margin:3px 6px 3px 0;
+      border: 1.2px solid #fff2;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-style: italic;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 2rem;
-      border-bottom: 1px solid #ccc;
-    }
-    h2 {
-      color: #4a4a2c; /* olive brown */
-      margin-bottom: 1rem;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .two-column {
+    section {margin-bottom:30px;}
+    .nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 27px;
     }
-    .two-column > div {
-      flex: 1;
-      min-width: 300px;
+    .nav-btn {
+      background: none;
+      color: #f6f6ff;
+      font-size: 1.12em;
+      font-weight: 600;
+      border: none;
+      letter-spacing: 0.018em;
+      cursor: pointer;
+      padding: 7px 12px;
+      border-radius: 9px;
+      transition: background 0.14s;
     }
-    .skill, .language, .contact-item {
-      margin: 0.5rem 0;
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.10);
     }
-    footer {
-      background-color: #3d3d29;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-    a {
-      color: #6b4e2e; /* brown */
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    @media (max-width:720px) {
+      .overlay-center { 
+        padding: 11px 2vw; 
+        max-width:98vw;
+        min-width:unset; }
+      .nav { 
+        flex-wrap: wrap; gap:9px; margin-bottom:20px;}
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="profile.jpg" alt="Linghadharinee A S" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #6b4e2e; margin-bottom: 1rem;">
-    <h1>Linghadharinee A S</h1>
-    <p>B.E. Biomedical Engineering | Neurotechnology Enthusiast</p>
-  </header>
+  <div class="overlay-center">
+    <!-- Navigation Bar -->
+    <div class="nav">
+      <button class="nav-btn" onclick="scrollToSection('about')">About</button>
+      <button class="nav-btn" onclick="scrollToSection('skills')">Skills</button>
+      <button class="nav-btn" onclick="scrollToSection('achievements')">Achievements</button>
+      <button class="nav-btn" onclick="scrollToSection('projects')">Projects</button>
+      <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
+    </div>
 
-  <div class="container">
-    <section>
-      <h2>Profile Summary</h2>
-      <p>Passionate Biomedical Engineering student with a strong academic foundation and a keen interest in neurotechnology and assistive innovation. Experienced in research-based projects, leadership roles, and student communities. Known for a proactive approach to learning, problem-solving, and applying technical knowledge to real-world challenges.</p>
+    <!-- Main Content -->
+    <section id="about">
+      <center>
+        <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+        <h1>Linghadharinee A S</h1>
+        <h3>Biomedical Engineering Student | Neurotechnology Enthusiast</h3>
+      </center>
+      <p style="text-align:center;color:#e6e6ff;margin:0 auto 12px auto;max-width:500px;">
+        Passionate Biomedical Engineering student with a strong academic foundation and a keen interest in neurotechnology and assistive innovation.
+      </p>
     </section>
-
-    <section>
-      <h2>Contact</h2>
-      <div class="contact-item">📞 9976824602</div>
-      <div class="contact-item">✉️ linghadharinee08@gmail.com</div>
-      <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/linghadhari-nee-surekshnaur-7944aa2a5" target="_blank">LinkedIn</a></div>
+    <section id="skills">
+      <h2>Skills</h2>
+      <span class="tag">C</span>
+      <span class="tag">Java</span>
+      <span class="tag">Python</span>
+      <span class="tag">Technical documentation</span>
+      <span class="tag">Arduino</span>
+      <span class="tag">Circuit design</span>
+      <span class="tag">Canva</span>
+      <span class="tag">Teamwork</span>
+      <span class="tag">Time Management</span>
+      <span class="tag">Leadership</span>
+      <span class="tag">Event Co-ordination</span>
     </section>
-
-    <section>
-      <h2>Education</h2>
-      <ul>
-        <li><strong>KPR Institute of Engineering and Technology</strong>, Coimbatore – B.E. BME (2023–2027)</li>
-        <li><strong>SSV CBSE School</strong>, Coimbatore – 89.4% (2021–2023), Academic Topper</li>
-      </ul>
-    </section>
-
-    <section>
+    <section id="achievements">
       <h2>Achievements</h2>
       <ul>
-        <li>Academic Topper for 3 consecutive semesters</li>
-        <li>Ranked 292nd in Code-O-Phile quiz (IIT Nagpur)</li>
-        <li>2nd Place – Paper Presentation at Sri Ramakrishna Engineering College</li>
-        <li>2nd Place – Paper Presentation at Karpagam Institute of Technology</li>
-        <li>1st Place – Design Thinking Contest, KPRIET</li>
+        <li>Academic Topper (3 consecutive semesters)</li>
+        <li>Ranked 292nd, Code-O-Phile (IIT Nagpur)</li>
+        <li>2nd Place, national paper presentation (SR Engineering, Kalaignar Karunanidhi Institute)</li>
+        <li>1st Place, Design Thinking contest (KPRIET)</li>
+        <li>Additional Secretary, BMESI Student Chapter</li>
+        <li>Operations Lead, IEEE EMBS Society</li>
+        <li>Coordinator, symposiums/student programs</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Leadership & Memberships</h2>
+      <h3>Certifications & Courses</h3>
       <ul>
-        <li>Additional Secretary, BMESI Student Chapter – KPRIET</li>
-        <li>Operations Lead, IEEE EMBS KPRIET</li>
-        <li>Key coordinator for symposiums and events</li>
+        <li>NPTEL – Neuroscience of Human Movement (Elite), Microsensors/Implantable Devices</li>
+        <li>MATLAB Onramp & Functions, Machine Learning Fundamentals (MathWorks)</li>
       </ul>
     </section>
-
-    <section>
-      <h2>Skills</h2>
-      <div class="two-column">
-        <div>
-          <p class="skill">• Basic Programming (C, Java, Python)</p>
-          <p class="skill">• Technical Documentation</p>
-          <p class="skill">• Arduino and Basic Circuit Design</p>
-        </div>
-        <div>
-          <p class="skill">• Time Management</p>
-          <p class="skill">• Leadership</p>
-          <p class="skill">• Event Coordination</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Languages</h2>
-      <p class="language">• English: Fluent</p>
-      <p class="language">• Tamil: Fluent</p>
-      <p class="language">• Telugu: Fluent</p>
-      <p class="language">• Hindi: Intermediate</p>
-    </section>
-
-    <section>
-      <h2>Certifications & Courses</h2>
+    <section id="projects">
+      <h2>Projects</h2>
       <ul>
-        <li>NPTEL – Neuroscience of Human Movement (IIT, NPTEL Elite Pass)</li>
-        <li>NPTEL – Microprocessors, Implantable Devices & Rodent Surgeries</li>
-        <li>MATLAB Onramp – MathWorks</li>
-        <li>Writing Functions in MATLAB – MathWorks</li>
-        <li>Machine Learning Fundamentals – MathWorks</li>
+        <li><strong>Your Project 1</strong>: Short description of project 1.</li>
+        <li><strong>Your Project 2</strong>: Short description of project 2.</li>
+        <!-- Add more projects as needed -->
       </ul>
     </section>
-
-    <section>
-      <h2>Internships</h2>
+    <section id="contact">
+      <h2>Contact & Socials</h2>
       <ul>
-        <li>Biomedical Intern – GEM Hospital, Coimbatore</li>
-        <li>Biomedical Intern – Leeway Biomedical, Bengaluru</li>
+        <li><strong>Email:</strong> <a href="mailto:linghadharinee08@gmail.com">linghadharinee08@gmail.com</a></li>
+        <li><strong>Phone:</strong> 9976824622</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/linghadharinee-sureshkumar-7944aa2a5" target="_blank">Profile</a></li>
       </ul>
+      <span class="tag">English: Fluent</span>
+      <span class="tag">Tamil: Fluent</span>
+      <span class="tag">Telugu: Fluent</span>
+      <span class="tag">Hindi: Intermediate</span>
+      <br>
+      <a href="resume_lingha.pdf" download style="display:inline-block;margin-top:13px;color:#fff;
+      background:#4b5f3c;padding:13px 25px;border-radius:9px;text-decoration:none;font-weight:600;">Download Resume</a>
     </section>
   </div>
-
-  <footer>
-    <p>&copy; 2025 Linghadharinee A S | Portfolio Website</p>
-  </footer>
+  <script>
+    // Smooth scroll to section
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    }
+  </script>
 </body>
 </html>
